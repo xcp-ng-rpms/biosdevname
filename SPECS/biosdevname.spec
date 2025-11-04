@@ -5,7 +5,7 @@
 
 Name:         biosdevname
 Version:      0.3.10
-Release: %{?xsrel}%{?dist}
+Release: %{?xsrel}.0.ydi.1%{?dist}
 Summary:      Helper for naming devices per BIOS names
 
 Group:        System Environment/Base
@@ -15,7 +15,7 @@ Provides:     xenserver-biosdevname
 # SMBIOS only exists on these arches.  It's also likely that other
 # arches don't expect the PCI bus to be sorted breadth-first, or of
 # so, there haven't been any comments about that on LKML.
-ExclusiveArch: %{ix86} x86_64 ia64
+ExclusiveArch: %{ix86} x86_64 ia64 aarch64
 Source0: biosdevname-0.3.10.tar.gz
 Patch0: biosdevname-disable-udev.patch
 Patch1: biosdevname-CA13344.patch
@@ -63,6 +63,9 @@ make install install-data DESTDIR=%{buildroot}
 
 
 %changelog
+* Tue Nov 04 2025 Yann Dirson <yann.dirson@vates.tech> - 0.3.10-5.0.ydi.1
+- enable for aarch64
+
 * Thu Nov 14 2024 Ross Lagerwall <ross.lagerwall@citrix.com> - 0.3.10-5
 - CA-392459: Accept the -x flag
 
